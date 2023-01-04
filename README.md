@@ -12,7 +12,7 @@ cd GiftedChatApp && npm install @react-navigation/native @react-navigation/stack
 
 sudo apt install adb (if necessary)
 
-launching project:
+launching project (after you launched your AVD):
 
 npx react-native start
 
