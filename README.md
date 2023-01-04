@@ -16,4 +16,4 @@ launching project:
 
 npx react-native start
 
-npx react-native run-android
+cd GiftedChatApp && npx react-native run-android
