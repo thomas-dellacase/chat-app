@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import React, { useState } from 'react';
+import Hyperlink from 'react-native-hyperlink';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LoginScreen = () => {
@@ -22,7 +23,12 @@ const LoginScreen = () => {
         value={password}
         onChangeText={text => setPassword(text)}
         secureTextEntry
-      /> 
+      />
+      
+      <Button title='Sign In' />
+      <Hyperlink linkDefault={ true }>
+        <Text style={{ fontSize: 15, alignItems: 'center' }}>Not registered ? Sign up here !</Text>
+      </Hyperlink>
     </View>
   )
 };
