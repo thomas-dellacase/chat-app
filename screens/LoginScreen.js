@@ -11,7 +11,7 @@ const LoginScreen = () => {
       <Input
         placeholder='Enter your Username'
         label='Username'
-        leftIcon={{ type: 'material', name:'key'}}
+        leftIcon={{ type: 'material', name:'username'}}
         value={username}
         onChangeText={text => setUsername(text)}
       /> 
@@ -19,8 +19,9 @@ const LoginScreen = () => {
         placeholder='Enter your Password'
         label='Password'
         leftIcon={{ type: 'material', name:'password'}}
-        value={username}
+        value={password}
         onChangeText={text => setPassword(text)}
+        secureTextEntry
       /> 
     </View>
   )
