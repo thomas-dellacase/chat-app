@@ -1,34 +1,35 @@
-import { View, Text } from 'react-native';
-import { Input, Button } from 'react-native-elements';
 import React, { useState } from 'react';
-import Hyperlink from 'react-native-hyperlink';
+import { View, Text, Linking } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Input, Button } from 'react-native-elements';
+// import {Routes, Route, useNavigate} from 'react-router-dom';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
-const LoginScreen = () => {
-  const [username, setUsername] = useState('');
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <View>
+    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Input
-        placeholder='Enter your Username'
-        label='Username'
-        leftIcon={{ type: 'material', name:'username'}}
-        value={username}
-        onChangeText={text => setUsername(text)}
+        placeholder='Enter your Email'
+        label='Email'
+        leftIcon={{ type: 'material', name:'email'}}
+        value={email}
+        onChangeText={text => setEmail(text)}
       /> 
       <Input
         placeholder='Enter your Password'
         label='Password'
-        leftIcon={{ type: 'material', name:'password'}}
+        leftIcon={{ type: 'material', name:''}}
         value={password}
         onChangeText={text => setPassword(text)}
         secureTextEntry
       />
       
       <Button title='Sign In' />
-      <Hyperlink linkDefault={ true }>
-        <Text style={{ fontSize: 15, alignItems: 'center' }}>Not registered ? Sign up here !</Text>
-      </Hyperlink>
+        <Text onPress={()=>{navigation.navigate('Register')}} style={{ fontSize: 15 }}>
+          Not registered ? Sign up here !
+        </Text>
     </View>
   )
 };
