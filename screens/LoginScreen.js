@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Linking } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-// import {Routes, Route, useNavigate} from 'react-router-dom';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -20,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
       <Input
         placeholder='Enter your Password'
         label='Password'
-        leftIcon={{ type: 'material', name:''}}
+        leftIcon={{ type: 'material', name:'lock'}}
         value={password}
         onChangeText={text => setPassword(text)}
         secureTextEntry

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Linking } from 'react-native';
+import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 const RegisterScreen = ({ navigation }) => {
@@ -12,14 +12,14 @@ const RegisterScreen = ({ navigation }) => {
       <Input
         placeholder='Enter your First Name'
         label='First Name'
-        leftIcon={{ type: 'material', name:'firstname'}}
+        leftIcon={{ type: 'material', name:'face'}}
         value={firstname}
         onChangeText={text => setFirstname(text)}
       /> 
       <Input
         placeholder='Enter your Last Name'
         label='Last Name'
-        leftIcon={{ type: 'material', name:'lastname'}}
+        leftIcon={{ type: 'material', name:'face'}}
         value={lastname}
         onChangeText={text => setLastname(text)}
       />
@@ -33,7 +33,7 @@ const RegisterScreen = ({ navigation }) => {
       <Input
         placeholder='Enter your Password'
         label='Password'
-        leftIcon={{ type: 'material', name:'password'}}
+        leftIcon={{ type: 'material', name:'lock'}}
         value={password}
         onChangeText={text => setPassword(text)}
         secureTextEntry
