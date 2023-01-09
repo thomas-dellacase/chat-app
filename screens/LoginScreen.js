@@ -5,6 +5,7 @@ import { Input, Button } from 'react-native-elements';
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Input
