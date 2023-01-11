@@ -3,31 +3,24 @@ import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 const register = () => {
-  console.log('salut les putes')
   fetch('http://10.10.31.76:3000/api/users', { 
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      password: this.state.password,
+      firstname: "thomas",
+      lastname: "serdjebi",
+      email: "t.sssse@gmail.com",
+      password: "Hermes3B13!",
     })
   })
   .then(data => data.json())
   .then(data =>  { 
-      console.log(data);
-      if(data.response){
-          alert("Successfully Registered"); 
-          console.log(response)
-      } else{
-          alert("Sorry, email has already been taken.");
-          console.log(response)
-      } 
-  })
-  .catch((err) => {
-       alert ("This is a warning message!");
-      console.error(err);
+      if(data.error) {
+        alert(data.error)
+      } else if (data.success == 1) {
+        alert("Successfully Registered"); 
+        // navigation.navigate('Login')   
+      }
   })
 
 }
