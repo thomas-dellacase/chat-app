@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
-const register = (props) => {
-  fetch('https://127.0.0.1:3000/api/users', { 
+const register = () => {
+  console.log('salut les putes')
+  fetch('http://10.10.31.76:3000/api/users', { 
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      firstname: props.firstname,
-      lastname: props.lastname,
-      email: props.email,
-      password: props.password,
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      email: this.state.email,
+      password: this.state.password,
     })
-
   })
   .then(data => data.json())
   .then(data =>  { 
@@ -85,7 +85,7 @@ const RegisterScreen = ({ navigation }) => {
         secureTextEntry
       />
       
-      <Button title='Register' onPress={register} />
+      <Button title='Register' onPress={()=> register()} />
         <Text onPress={()=>{navigation.navigate('Login')}} style={{ fontSize: 15 }}>
           Got an account ? Login here !
         </Text>
