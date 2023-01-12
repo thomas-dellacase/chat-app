@@ -46,6 +46,7 @@ const RegisterScreen = ({ navigation }) => {
     }
   }
   
+  
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Input
