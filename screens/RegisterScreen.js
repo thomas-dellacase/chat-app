@@ -3,8 +3,6 @@ import { View, Text, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 
-
-
 const RegisterScreen = ({ navigation }) => {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
