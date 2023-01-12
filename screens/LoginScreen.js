@@ -1,11 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
+  const login = () => {
+
+    fetch('http://10.10.34.109:3000/api/users/login', { 
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      })
+    })
+    .then(data => data.json())
+    .then(data =>  { 
+        if(data.error) {
+          Alert.alert(data.error)
+        } else if (data.success == 1) {
+          Alert.alert(
+            data.message,
+            "",
+            [
+              { text: "OK"}
+            ]
+          )
+        }
+      }
+    )
+  }
+    
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Input
@@ -24,7 +51,7 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry
       />
       
-      <Button title='Sign In' />
+      <Button title='Sign In' onPress={()=> login()} />
         <Text onPress={()=>{navigation.navigate('Register')}} style={{ fontSize: 15 }}>
           Not registered ? Sign up here !
         </Text>
