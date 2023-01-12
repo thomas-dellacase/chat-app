@@ -1,29 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
-const register = () => {
-  fetch('http://10.10.31.76:3000/api/users', { 
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      firstname: "thomas",
-      lastname: "serdjebi",
-      email: "t.sssse@gmail.com",
-      password: "Hermes3B13!",
-    })
-  })
-  .then(data => data.json())
-  .then(data =>  { 
-      if(data.error) {
-        alert(data.error)
-      } else if (data.success == 1) {
-        alert("Successfully Registered"); 
-        // navigation.navigate('Login')   
-      }
-  })
 
-}
+
 
 const RegisterScreen = ({ navigation }) => {
   const [firstname, setFirstname] = useState('');
@@ -32,6 +12,39 @@ const RegisterScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [password_validation, setPasswordValidation] = useState('');
 
+  const register = () => {
+    console.log('hello')
+
+    if(password != password_validation){
+      alert.alert("Your passwords doesn't match.")
+    } else {
+      fetch('http://10.10.31.76:3000/api/users', { 
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          password: password,
+        })
+      })
+      .then(data => data.json())
+      .then(data =>  { 
+          if(data.error) {
+            Alert.alert(data.error)
+          } else if (data.success == 1) {
+            Alert.alert(
+              "Alert Title",
+              "My Alert Msg",
+              [
+                { text: "OK", onPress: () => console.log("OK Pressed") }
+              ]
+            )
+          }
+      })
+    }
+  }
+  
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Input
@@ -85,5 +98,6 @@ const RegisterScreen = ({ navigation }) => {
     </View>
   )
 }
+
 
 export default RegisterScreen
