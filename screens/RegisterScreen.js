@@ -13,12 +13,13 @@ const RegisterScreen = ({ navigation }) => {
   const [password_validation, setPasswordValidation] = useState('');
 
   const register = () => {
+
     console.log('hello')
 
     if(password != password_validation){
       alert.alert("Your passwords doesn't match.")
     } else {
-      fetch('http://10.10.31.76:3000/api/users', { 
+      fetch('http://10.10.34.109:3000/api/users', { 
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -34,10 +35,10 @@ const RegisterScreen = ({ navigation }) => {
             Alert.alert(data.error)
           } else if (data.success == 1) {
             Alert.alert(
-              "Alert Title",
-              "My Alert Msg",
+              "Successfully registered",
+              "Press OK to login",
               [
-                { text: "OK", onPress: () => console.log("OK Pressed") }
+                { text: "OK", onPress: () =>{navigation.navigate('Login')} }
               ]
             )
           }
