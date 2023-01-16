@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import { GiftedChat } from 'react-native-gifted-chat';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -55,6 +56,7 @@ const LoginScreen = ({ navigation }) => {
         <Text onPress={()=>{navigation.navigate('Register')}} style={{ fontSize: 15 }}>
           Not registered ? Sign up here !
         </Text>
+        <GiftedChat />
     </View>
   )
 };

@@ -1,8 +1,10 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import NavScreen from "./component/navBar";
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -15,4 +17,4 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}; 

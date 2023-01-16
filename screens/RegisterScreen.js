@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import { GiftedChat } from 'react-native-gifted-chat';
 
 
 const RegisterScreen = ({ navigation }) => {
@@ -15,7 +16,7 @@ const RegisterScreen = ({ navigation }) => {
     if(password != password_validation){
       alert.alert("Your passwords doesn't match.")
     } else {
-      fetch('http://10.10.34.109:3000/api/users', { 
+      fetch('http://10.10.39.124:3000/api/users', { 
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -93,6 +94,7 @@ const RegisterScreen = ({ navigation }) => {
         <Text onPress={()=>{navigation.navigate('Login')}} style={{ fontSize: 15 }}>
           Got an account ? Login here !
         </Text>
+        <GiftedChat />
     </View>
   )
 }
